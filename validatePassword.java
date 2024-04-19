@@ -3,29 +3,29 @@ public class validatePassword {
 
     public static void validatePassword(String pass) {
         String rules = "";
-        boolean Uc = false;
-        boolean Lc = false;
-        boolean dig = false;
+        boolean upperCase = false;
+        boolean lowerCase = false;
+        boolean digits = false;
         boolean spl = false;
         if (pass.length() < 8) {
             rules += "The password must be at least 8 characters long.\n";
         }
         for (int i = 0; i < pass.length(); i++) {
             if (pass.charAt(i) >= 65 && pass.charAt(i) <= 90)
-                Uc = true;
+            upperCase = true;
             if (pass.charAt(i) >= 97 && pass.charAt(i) <= 122)
-                Lc = true;
+            lowerCase = true;
             if (pass.charAt(i) >= 48 && pass.charAt(i) <= 57)
-                dig = true;
+            digits = true;
             if(pass.charAt(i)>= 33 && pass.charAt(i) <= 47)
             spl = true;
         }
 
-        if (!Uc)
+        if (!upperCase)
             rules += "The password must contain at least one uppercase letter (A-Z).\n";
-        if (!Lc)
+        if (!lowerCase)
             rules += "The password must contain at least one lowercase letter (a-z).\n";
-        if (!dig)
+        if (!digits)
             rules += "The password must contain at least one digit (0-9).\n";
         if(!spl)
             rules += "The password must contain at least one Special Character.\n";
